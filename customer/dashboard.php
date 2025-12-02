@@ -1,23 +1,31 @@
 <?php
-require_once __DIR__ . '/../../auth_functions.php';
+require_once __DIR__ . '/../../includes/check_customer.php';
 session_start();
-if (empty($_SESSION['user_id']) || ($_SESSION['user_role'] ?? '') !== 'customer') {
-    header('Location: ../../login.php');
-    exit;
-}
 ?>
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Customer Dashboard</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Customer Dashboard - Furniture Sys</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/assets/css/dashboard.css" rel="stylesheet">
   </head>
   <body>
-    <div class="container py-5">
-      <h1>Customer Dashboard</h1>
-      <p>Welcome, <?=htmlspecialchars($_SESSION['user_email'])?></p>
-      <p><a href="../../logout.php">Logout</a></p>
+    <?php include __DIR__ . '/header.php'; ?>
+
+    <div class="container-fluid">
+      <div class="row">
+        <main class="col-12 px-4 py-4">
+          <h1 class="h3">Order Summary</h1>
+          <p>Recent Orders, Payment Status, and Notifications will appear here.</p>
+        </main>
+      </div>
     </div>
+
+    <?php include __DIR__ . '/footer.php'; ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   </body>
 </html>

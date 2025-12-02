@@ -1,0 +1,9 @@
+/* Dashboard specific styles */
+.sidebar{height:100vh}
+.sidebar .nav-link{color:#333}
+.metric{min-height:110px;display:flex;align-items:center;justify-content:center}
+.metric .card-body{text-align:center}
+
+@media(max-width:767px){
+  .sidebar{display:none}
+}
