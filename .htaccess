@@ -1,0 +1,15 @@
+# Basic security rules for Apache deployments
+# Block direct access to config and includes
+<IfModule mod_authz_core.c>
+  <FilesMatch "^(config|includes)($|/)">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+  # for older Apache
+  RedirectMatch 403 ^/(config|includes)/
+</IfModule>
+
+# Prevent directory listing
+Options -Indexes
